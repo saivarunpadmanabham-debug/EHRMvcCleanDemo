@@ -14,7 +14,9 @@ namespace EHRMvcCleanDemo.Models
         public DateTime AppointmentDate { get; set; }
         public int DurationMinutes { get; set; }
 
-        // Required medical info
+        // Required medical info with validation
+        [Required(ErrorMessage = "Reason for visit is required.")]
+        [MinLength(10, ErrorMessage = "Reason for visit must be at least 10 characters long.")]
         public string ReasonForVisit { get; set; } = string.Empty;
 
         // Scheduled / Completed / Cancelled
